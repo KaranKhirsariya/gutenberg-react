@@ -1,10 +1,10 @@
-// eslint-disable all
 import { fetchBooks } from 'api/api';
 import { ReactComponent as BackIcon } from 'assets/images/Back.svg';
 import { ReactComponent as SearchIcon } from 'assets/images/Search.svg';
 import BookCard from 'components/BookCard/BookCard';
 import Modal from 'components/Modal';
 import TextBox from 'components/TextBox/TextBox';
+import { t } from 'i18next';
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from 'react-query';
@@ -126,7 +126,7 @@ function Books() {
       <Modal
         handleClose={() => setShowBookUnavailablePopup(false)}
         isOpen={showBookUnavailablePopup}>
-        <Text>No viewable version available</Text>
+        <Text>{t('BOOKS.POPUP.NO_VIEWABLE_VERSION')}</Text>
       </Modal>
     </>
   );

@@ -1,45 +1,50 @@
-/* eslint-disable react/prop-types */
 import { ReactComponent as InputClearIcon } from 'assets/images/Cancel.svg';
 import clsx from 'clsx';
 import { default as t } from 'prop-types';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Flex } from 'rebass';
 import { Input } from 'theme-ui';
 import InputIcon from './InputIcon';
 const TextBox = React.forwardRef(
-  ({
-    label,
-    labelEnd,
-    // type,
-    htmlType,
-    iconStart,
-    iconEnd,
-    iconClickable,
-    onIconClick,
-    initialValue,
-    onChange,
-    readOnly,
-    value,
-    onClearClick,
-    clearable,
-    className,
-    onBlur,
-    onFocus,
-    autoComplete,
-    placeholder,
-    // children,
-    disabled,
-    ...props
-  }) => {
+  (
+    {
+      label,
+      labelEnd,
+      // type,
+      htmlType,
+      iconStart,
+      iconEnd,
+      iconClickable,
+      onIconClick,
+      initialValue,
+      onChange,
+      readOnly,
+      value,
+      onClearClick,
+      clearable,
+      className,
+      onBlur,
+      onFocus,
+      autoComplete,
+      placeholder,
+      // children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
     const [selfValue, setSelfValue] = useState(initialValue);
-    const inputRef = useRef(null);
-    // const theme = useThemeUI();
     const [hover, setHover] = useState(false);
+    const inputRef = useRef(null);
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
+
+    useImperativeHandle(ref, () => inputRef.current);
+
     const labelClasses = useMemo(
       () => (labelEnd ? 'right-label' : label ? 'left-label' : ''),
       [label, labelEnd]
     );
+
     const iconClasses = useMemo(
       () => (iconEnd ? 'right-icon' : iconStart ? 'left-icon' : ''),
       [iconStart, iconEnd]
@@ -52,11 +57,13 @@ const TextBox = React.forwardRef(
         currentTarget: el,
       };
     };
+
     const changeHandler = (event) => {
       if (disabled || readOnly) return;
       setSelfValue(event.target.value);
       onChange && onChange(event);
     };
+
     const clearHandler = (event) => {
       setSelfValue('');
       onClearClick && onClearClick(event);
@@ -150,6 +157,20 @@ TextBox.propTypes = {
   iconEnd: t.node,
   iconStart: t.node,
   inputProps: t.object,
+  htmlType: t.string,
+  iconClickable: t.bool,
+  onChange: t.func,
+  readOnly: t.bool,
+  value: t.string,
+  onClearClick: t.func,
+  clearable: t.bool,
+  className: t.string,
+  onBlur: t.func,
+  onFocus: t.func,
+  autoComplete: t.bool,
+  placeholder: t.string,
+  onIconClick: t.func,
+  disabled: t.bool,
 };
 
 TextBox.defaultProps = {

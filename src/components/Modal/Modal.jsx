@@ -57,7 +57,7 @@ function Modal({ children, isOpen, handleClose }) {
 Modal.propTypes = {
   children: PropTypes.node,
 
-  isOpen: PropTypes.boolean,
+  isOpen: PropTypes.bool,
 
   handleClose: PropTypes.func,
 };

@@ -2,5 +2,10 @@
   "GENRES": {
     "TITLE": "Gutenberg Project",
     "SUB_TITLE": "A social cataloging website that allows you to freely search its database of books, annotations, and reviews."
+  },
+  "BOOKS": {
+    "POPUP": {
+      "NO_VIEWABLE_VERSION": "No viewable version available"
+    }
   }
 }
