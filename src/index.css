@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 300;
+  src: url(assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  src: url(assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+.page-fade-enter {
+  opacity: 0;
+  transform: translate(0, 25px);
+  z-index: 1;
+}
+.page-fade-enter.page-fade-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: opacity 250ms ease-out, transform 300ms ease;
+}
+.page-fade-exit {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.page-fade-exit.page-fade-exit-active {
+  opacity: 0;
+  transform: translate(0, 30px);
+  transition: opacity 250ms ease-out, transform 300ms ease;
+}

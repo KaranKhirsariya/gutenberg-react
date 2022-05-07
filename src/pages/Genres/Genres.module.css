@@ -1,0 +1,9 @@
+.header {
+  /* margin: -1em;
+  padding: 1em; */
+  background: url(assets/images/Pattern.svg) no-repeat;
+  background-size: cover;
+}
+.content {
+  /* padding: 0 1em; */
+}

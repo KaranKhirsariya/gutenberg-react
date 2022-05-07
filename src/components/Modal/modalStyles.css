@@ -1,0 +1,51 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 999;
+  padding: 40px 20px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.4);
+}
+
+.modal-enter-done {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.modal-exit {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.modal-wrapper {
+  min-width: 65%;
+  min-height: 25%;
+  padding: 1em;
+  border-radius: 16px;
+}
+
+/* .app-alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.app-alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.app-alert-exit {
+  opacity: 1;
+}
+.app-alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+} */
